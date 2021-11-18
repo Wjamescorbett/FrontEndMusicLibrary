@@ -29,9 +29,8 @@ class App extends Component {
     }
 
 
-    CreateSongFunction = (event) => {
-        event.preventDefault();
-        
+    CreateSongFunction = (newSong) => {
+        this.state.songs.push(newSong)
         }
 
     render() {
