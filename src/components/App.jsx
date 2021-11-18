@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, {Component} from 'react';
 import './App.css';
+import SongTable from './SongTable/SongTable';
 import TitleBar from './TitleBar/TitleBar';
-
+import CreateSong from './CreateSong/CreateSong';
 
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
 
     async getAllSongs(){
         try{
-            let response = await axios.get('http://127.0.0.1:8000/');
+            let response = await axios.get('http://127.0.0.1:8000/music/');
             this.setState({
                 songs: response.data
             });
@@ -28,45 +29,25 @@ class App extends Component {
     }
 
 
-    
-    state2 = {
-    names: ['Mike', 'Nevin', 'Aaron', 'Tory', 'Kelly']
-    }
+    // CreateSong 
 
-    constructor(props) {
-        super(props);
-        this.superheroes = [
-            {
-                superheroId: 1,
-                name: 'Batman',
-                primaryAbility: 'Wealthy',
-                secondaryAbility: 'Rich'
-            },
-            {
-                superheroId: 2,
-                name: 'Superman',
-                primaryAbility: 'Super strength',
-                secondaryAbility: 'Fly'
-            },
-            {
-                superheroId: 3,
-                name: 'Spiderman',
-                primaryAbility: 'Spider senses',
-                secondaryAbility: 'Shoots web'
-            }
-        ];
-    }
-
-    AlertUserFunction = (event) => {
+    CreateSongFunction = (event) => {
         event.preventDefault();
-        alert('devCodeCamp')
+        
         }
 
     render() {
+        console.log("Render Happened!!!!!!!!!!!!")
         return(
-            <form onSubmit={(event) => this.AlertUserFunction(event)}>
+            <form onSubmit={(event) => this.CreateSongFunction(event)}>
                 <div className='container-fluid'>
                     <TitleBar />
+                    <SongTable songs = {this.state.songs} />
+                    <div className = 'outterbox'>
+                        <div className = 'innerbox3'>
+                            <button type="submit">Add Song To Database</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         )
@@ -77,7 +58,7 @@ export default App;
 
 
 
-
+// axio.post = 
 
 
 // <form onSubmit={(event) => this.AlertUserFunction(event)}>
