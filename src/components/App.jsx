@@ -29,8 +29,6 @@ class App extends Component {
     }
 
 
-    // CreateSong 
-
     CreateSongFunction = (event) => {
         event.preventDefault();
         
@@ -43,11 +41,7 @@ class App extends Component {
                 <div className='container-fluid'>
                     <TitleBar />
                     <SongTable songs = {this.state.songs} />
-                    <div className = 'outterbox'>
-                        <div className = 'innerbox3'>
-                            <button type="submit">Add Song To Database</button>
-                        </div>
-                    </div>
+                    <CreateSong createNewSong = {this.CreateSongFunction} />
                 </div>
             </form>
         )
