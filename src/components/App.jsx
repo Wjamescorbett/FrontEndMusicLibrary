@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {Component} from 'react';
 import './App.css';
 import TitleBar from './TitleBar/TitleBar';
@@ -7,10 +8,27 @@ import TitleBar from './TitleBar/TitleBar';
 class App extends Component {
 
     state = {
-    firstName: 'Reggie',
-    lastName: 'White'
+        songs: []
     };
 
+    componentDidMount(){
+        this.getAllSongs();
+    }
+
+    async getAllSongs(){
+        try{
+            let response = await axios.get('http://127.0.0.1:8000/');
+            this.setState({
+                songs: response.data
+            });
+        }   
+        catch (ex) {
+            console.log('Error in API call')
+        }
+    }
+
+
+    
     state2 = {
     names: ['Mike', 'Nevin', 'Aaron', 'Tory', 'Kelly']
     }
