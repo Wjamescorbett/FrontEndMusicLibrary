@@ -30,7 +30,8 @@ class App extends Component {
 
 
     CreateSongFunction = (newSong) => {
-        this.state.songs.push(newSong)
+        this.state.songs.push(newSong);
+        this.setState
         }
 
     render() {
